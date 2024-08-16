@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Image Editor{% endblock %}
+
+{% block content %}
+    <!-- Main container for center alignment -->
+    <div class="container my-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10">
+                <!-- Card with welcoming message -->
+                <div class="card border-0 rounded-lg shadow-lg bg-light">
+                    <div class="card-body p-5 text-center">
+                        <h1 class="mb-4 display-4 font-weight-bold">Welcome to the Image Editor</h1>
+                        <p class="lead mb-4">Transform and enhance your images effortlessly with our powerful tools.</p>
+                        <p class="mb-4">Select an option from the navigation bar to get started.</p>
+                        <div class="d-flex justify-content-center">
+                            <a href="{{ url_for('convert') }}" class="btn btn-primary btn-lg mx-2">Image Conversion</a>
+                            <a href="{{ url_for('resize') }}" class="btn btn-secondary btn-lg mx-2">Image Resize</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom styles for a welcoming and warm design -->
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #f7f7f7, #e1e1e1); /* Soft gradient background */
+            color: #333; /* Text color for readability */
+        }
+        .card {
+            background: #ffffff; /* Clean white background for the card */
+            border-radius: 0.75rem; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+        }
+        .btn-primary {
+            background-color: #ff6f61; /* Warm coral color for primary buttons */
+            border-color: #ff6f61;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #e55b50; /* Slightly darker shade on hover */
+            border-color: #e55b50;
+        }
+        .btn-secondary {
+            background-color: #f0a500; /* Warm amber color for secondary buttons */
+            border-color: #f0a500;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-secondary:hover {
+            background-color: #e09900; /* Slightly darker shade on hover */
+            border-color: #e09900;
+        }
+    </style>
+{% endblock %}

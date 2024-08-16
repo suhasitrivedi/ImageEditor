@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Image Resize{% endblock %}
+
+{% block content %}
+    <!-- Main container for center alignment -->
+    <div class="container my-5 py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <!-- Card with 3D effect -->
+                <div class="card border-0 rounded-lg shadow-lg">
+                    <div class="card-header bg-gradient text-white text-center rounded-top">
+                        <h2 class="mb-0">Image Resize</h2>
+                    </div>
+                    <div class="card-body p-4">
+                        <!-- Form with a streamlined look -->
+                        <form action="/upload_resize" method="POST" enctype="multipart/form-data">
+                            <div class="form-group mb-4">
+                                <label for="image" class="form-label">Select Image:</label>
+                                <input type="file" class="form-control" id="image" name="image" required>
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="resize" class="form-label">Resize Image (width x height):</label>
+                                <input type="text" class="form-control" id="resize" name="resize" placeholder="e.g., 800x600">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="compression" class="form-label">Compression Quality (0-100):</label>
+                                <input type="number" class="form-control" id="compression" name="compression" min="0" max="100">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill">Upload and Resize</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom styles for a refined 3D effect -->
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #f7f7f7, #e1e1e1); /* Soft gradient background */
+            color: #333; /* Text color for readability */
+        }
+        .card {
+            background: #ffffff; /* Clean white background for the card */
+            border-radius: 0.75rem; /* More rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+        }
+        .card-header {
+            background: linear-gradient(135deg, #e84393, #fd79a8); /* Gradient background */
+            color: #ffffff; /* White text for contrast */
+        }
+        .btn-primary {
+            background-color: #d63031; /* Bold color for buttons */
+            border-color: #d63031;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #c0392b; /* Darker shade on hover */
+            border-color: #c0392b;
+        }
+        .form-label {
+            font-weight: 500; /* Slightly bold for emphasis */
+            color: #495057; /* Darker text color for labels */
+        }
+        .form-control {
+            border-radius: 0.375rem; /* Slightly rounded corners */
+            border: 1px solid #ced4da; /* Subtle border for form controls */
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Light inner shadow for depth */
+        }
+    </style>
+{% endblock %}

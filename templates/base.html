@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Image Editor{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .navbar {
+            background: linear-gradient(45deg, #ff6f61, #d5a6d8);
+            padding: 0.5rem 1rem;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffeb3b !important;
+        }
+        .btn-custom {
+            border-radius: 20px;
+            font-weight: 500;
+            padding: 10px 20px;
+            margin-left: 5px;
+        }
+        .btn-login {
+            background-color: #2196F3;
+            color: #fff;
+        }
+        .btn-register {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+        .btn-logout {
+            background-color: #f44336;
+            color: #fff;
+        }
+        .navbar-nav .nav-item {
+            margin-left: 10px;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M4 6h16v2H4zm0 4h16v2H4zm0 4h16v2H4z'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">Image Editor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/convert">Image Conversion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/resize">Image Resize</a>
+                </li>
+                <!-- Add more links here if needed -->
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if 'user_id' in session %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-custom btn-logout" href="/logout">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-custom btn-login" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-custom btn-register" href="/register">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        {% block content %}
+        <!-- Page content will be inserted here -->
+        {% endblock %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
